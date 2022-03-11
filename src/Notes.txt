@@ -1,0 +1,7 @@
+1. Difference Between Regular and Arrow Function
+2. What is React Components
+3. How do we create a Functional Components?
+4. Create a Button or Input Field Components
+5. Make its as Reusable Components - Supporting
+6. Reusable Alert box Component with a single div parent element and one child element of the div.
+7. Create Functional Components and display the icons/logo of the technologies

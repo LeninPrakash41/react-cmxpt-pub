@@ -1,0 +1,16 @@
+h1, p {
+  font-family: Lato;
+}
+
+/* .elem{
+  color:red;
+} */
+
+#elem{
+  color:green;
+  font-size:40px;
+}
+
+.logo {
+  max-width: 300px;
+}
