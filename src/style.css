@@ -1,4 +1,5 @@
-h1, p {
+h1,
+p {
   font-family: Lato;
 }
 
@@ -6,11 +7,35 @@ h1, p {
   color:red;
 } */
 
-#elem{
-  color:green;
-  font-size:40px;
+#elem {
+  color: green;
+  font-size: 40px;
 }
 
 .logo {
   max-width: 300px;
+}
+
+.App {
+  text-align: center;
+}
+
+img {
+  height: 80px;
+  margin-left: 120px;
+  display: block;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.App-Header {
+  background-color: aliceblue;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: calc(8px + 2vmin);
 }
