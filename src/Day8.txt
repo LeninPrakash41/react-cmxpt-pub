@@ -1,0 +1,251 @@
+/* App.js 
+
+
+HTML Forms
+<form action ="https://{url}">
+form-group with Dynamic Inputs
+<input type="text" value="Sathyabama" required />
+<label></label>
+<textarea></textarea>
+<select options=""></select>
+<button type="submit">Submit</button> 
+</form>
+
+Handle differently by React
+In React, it will allow for being mutated by the users, unlike static components like 
+form-group with Static Components
+<div />
+<h1 />
+<p />
+
+Controlled Components - Read-Only input
+
+let textBox = ""
+
+function(){
+  return <input type="text" value = "Example or Read Only Input" />
+}
+ReactDOM.render(<textBox />, document.getElementByID('root'))
+
+
+1. React uses forms to allow users to inetract with web pages.
+2. Form data/inputs can be handled by Components.
+3. All data should be stored in the Component State.
+4. Control the changes by adding Events Handlers
+5. Use onChange attribute and that event handler 
+will be used to update the state of the variables.
+
+Steps:
+1. React Forms as a project directory
+2. go to the directory
+3. Create React Project {Directory} 
+4. npm start
+5. localhost:3000
+
+Registration Form -
+1. Username
+2. Age
+3. Email/Mobile
+4. Password
+5. Confirm Password
+6. Submit
+7. Alert Box
+
+Steps to write a form:
+1. import all necessary libararies for react and dom render
+2. import library named 'useState'
+3. function - Which hold form fields
+4. Assign variable name and set State with useState
+5. Update state of each value mapped or entered to the particular field
+6. function - should be called when the user click on the submit
+7. use preventDefault() - Stop reloading the page
+8. Return Data over <div />
+9. export default App
+10. Add CSS to the stylesheet
+
+
+*/
+
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import "./style.css";
+
+function App() {
+  //define the variables
+  //useState can be called as 'Hook'
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+
+  // Update state of all variables (with help of useState) values entered by the user
+  const handleNameChange = (ev) => {
+    setName(ev.target.value);
+  };
+
+  const handleAgeChange = (ev) => {
+    setAge(ev.target.value);
+  };
+
+  const handleEmailChange = (ev) => {
+    setEmail(ev.target.value);
+  };
+
+  const handleMobileChange = (ev) => {
+    setMobile(ev.target.value);
+  };
+
+  const handlePasswordChange = (ev) => {
+    setPassword(ev.target.value);
+  };
+
+  const handleCofirmPasswordChange = (ev) => {
+    setConfirmPassword(ev.target.value);
+  };
+
+  const handleSubmit = (ev) => {
+    if (password != confirmpassword) {
+      alert("Password entered doesn't match");
+    } else {
+      alert(
+        'Name: "' + name + '" , Age: "' + age + '" and Email :"' + email + '"'
+      );
+    }
+    ev.preventDefault();
+  };
+
+  return (
+    <div className="App">
+      <header className="App-Header">
+        <form
+          onSubmit={(ev) => {
+            handleSubmit(ev);
+          }}
+        >
+          {/*  Assign Form Fields here */}
+          <h1>ReactJS Course Enrollment - Algoxfusion </h1>
+          <h2>Registration Form</h2>
+          {/* <img src="https://www.macincode.com/assets/img/logo.png" /> <br />*/}
+          <label> Name: </label> <br />
+          <input
+            type="text"
+            value={name}
+            required
+            onChange={(ev) => {
+              handleNameChange(ev);
+            }}
+          />
+          {/*  When the user type some date in this field, 
+          that time our handleChange() function will be called with the help of Events*/}
+          <br />
+          <label> Age: </label> <br />
+          <input
+            type="text"
+            value={age}
+            required
+            onChange={(ev) => {
+              handleAgeChange(ev);
+            }}
+          />
+          <br />
+          <label> Email: </label> <br />
+          <input
+            type="email"
+            value={email}
+            required
+            onChange={(ev) => {
+              handleEmailChange(ev);
+            }}
+          />
+          <br />
+          <label> Password: </label> <br />
+          <input
+            type="password"
+            value={password}
+            required
+            onChange={(ev) => {
+              handlePasswordChange(ev);
+            }}
+          />
+          <br />
+          <label> Confirm Password: </label> <br />
+          <input
+            type="password"
+            value={confirmpassword}
+            required
+            onChange={(ev) => {
+              handleCofirmPasswordChange(ev);
+            }}
+          />
+          <br />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+
+
+/*   Index.js  */
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
+
+const rootElem = document.getElementById("root");
+
+ReactDOM.render(<App />, rootElem);
+
+
+
+/*    Style.css */
+
+h1,
+p {
+  font-family: Lato;
+}
+
+/* .elem{
+  color:red;
+} */
+
+#elem {
+  color: green;
+  font-size: 40px;
+}
+
+.logo {
+  max-width: 300px;
+}
+
+.App {
+  text-align: center;
+}
+
+img {
+  height: 80px;
+  margin-left: 120px;
+  display: block;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.App-Header {
+  background-color: aliceblue;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: calc(8px + 2vmin);
+}
+
+

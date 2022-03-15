@@ -8,7 +8,7 @@ const logoImg = 'https://www.macincode.com/assets/img/logo.png';
 
 const headerStyles = {
   color: '#000000',
-  backgroundColor: '#eeeeee',
+  backgroundColor: '#eeeeee'
   padding: 20,
   lineHeight: 1.5,
   fontSize: 14,
