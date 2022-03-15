@@ -1,0 +1,220 @@
+Conditional Render:
+It is a way to render different JSX elements or components at different conditionals.
+
+Implemntation;
+1. If...else 
+2. Ternary Operator
+3. Logical Operator
+
+
+If and Else Statement:
+Write an initial state of loggedIn = false
+We should inform user to log in otherwise we can welcome to home page/any other pages.
+
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import App from "./App.js";
+
+// const rootElem = document.getElementById("root");
+
+// ReactDOM.render(<App />, rootElem);
+
+/*
+Conditional Render
+
+1. Create Header and assign variables
+2. Create App with State and Conditionals
+3. Return Header and Result of the condition.
+4. Add a method which allows us to toggle the user's status.
+5. We should use button to handle the event for Sign in and sign out.  
+*/
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+// STep 5 - Adding styles to the button
+const buttonStyles = {
+  backgroundColor: "#000000",
+  padding: 10,
+  borderRadius: 4,
+  border: "1px solid grey",
+  margin: "3px auto",
+  color: "white",
+  fontSize: 20,
+  cursor: "pointer",
+  width: 200,
+  height: 50
+};
+
+// Step 1 - class component
+class Header extends React.Component {
+  render() {
+    console.log(this.props.data);
+    const {
+      Welcome,
+      Title,
+      tutor: { fName, lName },
+      date
+    } = this.props.data; //Structure in C language
+    return (
+      <header>
+        <div className="header-cls">
+          <h1>{Welcome}</h1>
+          <h1>{Title}</h1>
+          <p>
+            {fName} {lName}{" "}
+          </p>
+          <small>{date}</small>
+        </div>
+      </header>
+    );
+  }
+}
+
+const SignIn = () => (
+  <div>
+    <h3>Please Sign In</h3>
+  </div>
+);
+
+const Home = (props) => (
+  <div>
+    <h3>Welcome User!</h3>
+  </div>
+);
+
+const prompt = ({ message }) => (
+  <div>
+    <h3>{message}</h3>
+  </div>
+);
+
+// Step 4 - Create a Button
+const Button = ({ text, style, onClick }) => (
+  <button style={style} onClick={onClick}>
+    {text}
+  </button>
+);
+
+// Step 2 - class component for App
+class App extends React.Component {
+  // Step 3 - Assign State
+  state = {
+    loggedIn: false,
+    skills: ["HTML", "CSS", "JAVASCRIPT"]
+  };
+
+  handleSignIn = () => {
+    this.setState({
+      loggedIn: !this.state.loggedIn
+    });
+  };
+
+  userMessage = () => {
+    let message = "Thanks for registering with us!";
+    this.setState({ message });
+  };
+
+  render() {
+    const data = {
+      Welcome: "Sathyabama University",
+      Title: "ReactJS Course",
+      tutor: {
+        fName: "Lenin",
+        lName: "Prakash"
+      },
+      date: "3/15/2022"
+    };
+
+    // Step 3 - Apply conditional Rendering using If...else
+
+    /*     
+    let result;
+    let button_text;
+
+    // Single Condition
+    if (this.state.loggedIn) {
+      result = <h2>Welcome {this.fName} </h2>;
+      button_text = "Sign Out";
+    } else {
+      result = <h3>Please Sign In to access</h3>;
+      button_text = "Sign In";
+    } */
+
+    // Multiple - Use Ternary Operator
+    // Use it inside styles, class, component
+
+    // We can de-struct the state
+    const { loggedIn, skills } = this.state;
+    const result = loggedIn ? <Home /> : <SignIn />;
+
+    // let result = this.state.loggedIn ? <Home /> : <SignIn />;
+
+    return (
+      <div className="app">
+        <Header data={data} />
+        {result}
+        <Button
+          text={this.state.loggedIn ? "Sign Out" : "Sign In"}
+          style={buttonStyles}
+          onClick={this.handleSignIn}
+        />
+
+        {skills.length === 3 && (
+          <p>You can learn the basics of all languages</p>
+        )}
+        {!loggedIn && <p> Please Login to access more</p>}
+      </div>
+    );
+  }
+}
+
+const rootElem = document.getElementById("root");
+ReactDOM.render(<App />, rootElem);
+
+
+Events:
+Events is an action, user typing on any input device.
+1. on click of a button
+2. mouse over
+3. key press
+4. input focus
+5. scrolling the mouse
+6. hovering on an image
+
+
+- Handle events in react is similar to Javascript events, but syntax is somewhat different
+1. camelCase
+2. With JSX elements, you can pass a function as the eventy handler, rather than a string
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset = 'utf-8' />
+</head>
+
+<body>
+<button onclick = "promptUser()"> User Message </button>
+<script>
+  const promptUser = () => {
+    alert('Hi User!, welcome to Algox')
+  }
+</script>
+
+</body>
+</html>
+
+
+import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
+
+//functional components
+class App extends Component{
+    handleClick = () => {
+    alert('Hi User!, welcome to Algox')
+  }
+  render(){
+  return <a href='#' onClick = {this.handleClick} > Click Me </a>
+  }
+}
