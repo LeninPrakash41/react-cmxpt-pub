@@ -1,189 +1,43 @@
-/*
-HTML Forms
-<form action ="https://{url}">
-form-group with Dynamic Inputs
-<input type="text" value="Sathyabama" required />
-<label></label>
-<textarea></textarea>
-<select options=""></select>
-<button type="submit">Submit</button> 
-</form>
+import React from "react";
+import MenuItem from "@material-ui/core/MenuItem";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
 
-Handle differently by React
-In React, it will allow for being mutated by the users, unlike static components like 
-form-group with Static Components
-<div />
-<h1 />
-<p />
+const App = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-Controlled Components - Read-Only input
-
-let textBox = ""
-
-function(){
-  return <input type="text" value = "Example or Read Only Input" />
-}
-ReactDOM.render(<textBox />, document.getElementByID('root'))
-
-
-1. React uses forms to allow users to inetract with web pages.
-2. Form data/inputs can be handled by Components.
-3. All data should be stored in the Component State.
-4. Control the changes by adding Events Handlers
-5. Use onChange attribute and that event handler 
-will be used to update the state of the variables.
-
-Steps:
-1. React Forms as a project directory
-2. go to the directory
-3. Create React Project {Directory} 
-4. npm start
-5. localhost:3000
-
-Registration Form -
-1. Username
-2. Age
-3. Email/Mobile
-4. Password
-5. Confirm Password
-6. Submit
-7. Alert Box
-
-Steps to write a form:
-1. import all necessary libararies for react and dom render
-2. import library named 'useState'
-3. function - Which hold form fields
-4. Assign variable name and set State with useState
-5. Update state of each value mapped or entered to the particular field
-6. function - should be called when the user click on the submit
-7. use preventDefault() - Stop reloading the page
-8. Return Data over <div />
-9. export default App
-10. Add CSS to the stylesheet
-
-
-*/
-
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import "./style.css";
-
-function App() {
-  //define the variables
-  //useState can be called as 'Hook'
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmpassword, setConfirmPassword] = useState("");
-
-  // Update state of all variables (with help of useState) values entered by the user
-  const handleNameChange = (ev) => {
-    setName(ev.target.value);
+  const handleClose = (ev) => {
+    setAnchorEl(null);
+    ev.stopPropagation();
   };
 
-  const handleAgeChange = (ev) => {
-    setAge(ev.target.value);
-  };
-
-  const handleEmailChange = (ev) => {
-    setEmail(ev.target.value);
-  };
-
-  const handleMobileChange = (ev) => {
-    setMobile(ev.target.value);
-  };
-
-  const handlePasswordChange = (ev) => {
-    setPassword(ev.target.value);
-  };
-
-  const handleCofirmPasswordChange = (ev) => {
-    setConfirmPassword(ev.target.value);
-  };
-
-  const handleSubmit = (ev) => {
-    if (password != confirmpassword) {
-      alert("Password entered doesn't match");
-    } else {
-      alert(
-        'Name: "' + name + '" , Age: "' + age + '" and Email :"' + email + '"'
-      );
-    }
-    ev.preventDefault();
+  const handleClick = (ev) => {
+    setAnchorEl(ev.currentTarget);
   };
 
   return (
-    <div className="App">
-      <header className="App-Header">
-        <form
-          onSubmit={(ev) => {
-            handleSubmit(ev);
-          }}
-        >
-          {/*  Assign Form Fields here */}
-          <h1>ReactJS Course Enrollment - Algoxfusion </h1>
-          <h2>Registration Form</h2>
-          {/* <img src="https://www.macincode.com/assets/img/logo.png" /> <br />*/}
-          <label> Name: </label> <br />
-          <input
-            type="text"
-            value={name}
-            required
-            onChange={(ev) => {
-              handleNameChange(ev);
-            }}
-          />
-          {/*  When the user type some date in this field, 
-          that time our handleChange() function will be called with the help of Events*/}
-          <br />
-          <label> Age: </label> <br />
-          <input
-            type="text"
-            value={age}
-            required
-            onChange={(ev) => {
-              handleAgeChange(ev);
-            }}
-          />
-          <br />
-          <label> Email: </label> <br />
-          <input
-            type="email"
-            value={email}
-            required
-            onChange={(ev) => {
-              handleEmailChange(ev);
-            }}
-          />
-          <br />
-          <label> Password: </label> <br />
-          <input
-            type="password"
-            value={password}
-            required
-            onChange={(ev) => {
-              handlePasswordChange(ev);
-            }}
-          />
-          <br />
-          <label> Confirm Password: </label> <br />
-          <input
-            type="password"
-            value={confirmpassword}
-            required
-            onChange={(ev) => {
-              handleCofirmPasswordChange(ev);
-            }}
-          />
-          <br />
-          <br />
-          <input type="submit" value="Submit" />
-        </form>
-      </header>
+    <div style={{ marginLeft: "40%" }}>
+      <h2> Menu Component</h2>
+      <Button
+        aria-controls="simple-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        Menu Items
+      </Button>
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        open={Boolean(anchorEl)}
+      >
+        <MenuItem onClick={handleClose}> My Profile </MenuItem>
+        <MenuItem onClick={handleClose}> Accounts </MenuItem>
+        <MenuItem onClick={handleClose}> Settings </MenuItem>
+        <MenuItem onClick={handleClose}> Sign Out </MenuItem>
+      </Menu>
     </div>
   );
-}
+};
 
 export default App;
