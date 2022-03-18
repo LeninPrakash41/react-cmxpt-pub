@@ -12,13 +12,14 @@ import {
   ListItemText,
   makeStyles
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons";
+import MenuIcon from "@material-ui/icons/Menu";
+//import { Menu as MenuIcon } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   link: {
     textDecoration: "none",
-    color: "white",
+    color: "black",
     fontSize: "20px"
   },
   icon: {
@@ -43,7 +44,7 @@ function DrawerComponent() {
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/about" className={classes.link}>
+              <Link to="/About" className={classes.link}>
                 About
               </Link>
             </ListItemText>
@@ -51,7 +52,7 @@ function DrawerComponent() {
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/contact" className={classes.link}>
+              <Link to="/Contact" className={classes.link}>
                 Contact
               </Link>
             </ListItemText>
@@ -59,7 +60,7 @@ function DrawerComponent() {
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/blog" className={classes.link}>
+              <Link to="/Blog" className={classes.link}>
                 Blog
               </Link>
             </ListItemText>

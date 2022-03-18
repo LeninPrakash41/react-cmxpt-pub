@@ -30,10 +30,11 @@
 
 // export default Home;
 
-import { Typography } from "@material-ui/core";
+// import { Typography } from "@material-ui/core";
 
-function Home() {
-  return <Typography> Home Page </Typography>;
-}
+// function Home() {
+//   return <Typography> <h1> Home Page </h1> </Typography>;
+// }
 
-export default Home;
+// export default Home;
+

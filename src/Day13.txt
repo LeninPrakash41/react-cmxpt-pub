@@ -1,0 +1,140 @@
+Hook:
+
+1. Hook technique is added in v16.5+
+2. Hooks allows us to access the state and lifecyle methods of a funciton and other features available in react.
+3. Functional Component
+
+4. By using useState hook, we are keep tracking of the state of the application.
+
+Regulations:
+1. Call Hooks only inside the funciton Components
+2. It should be at the top level of a Component
+3. Hooks cannot be a conditional render value
+
+
+
+useState - Purpose in react
+1. Data or Properties => state
+2. import {useState} from "react"
+3. current state of action and updated state of action
+4. First/Current state => star
+5. Updated/Modified state => setStar
+6. useState("") - empty string should be set in initial state
+7. Read State - {star}
+8. onClick={
+    () => setStar("")
+}
+9. use any numbers, strings, booleans, array, objects, and combination of all those.
+
+Multiple State Hooks:
+
+
+import React, {useState} from 'react'
+import ReactDOM from 'react-dom'
+
+
+function App(){
+// set some state to the function using array
+
+// const [star, setStar] = useState();
+
+    // const [search, setSearch] = useState("Google")
+    // const [storage, setStorage] = useState("Drive")
+    // const [limit, setLimit] = useState("Sheet")
+    // const [date, setDate] = useState("13/03/2022")
+
+    const [product, setProduct] = useState ({
+      brand: "Google",
+      storage: "Drive",
+      limit: "Google Sheet",
+      date: "13/03/2022"
+    })
+
+
+    const updateDate = () =>{
+      setProduct( existState => {
+        return { ...existState, date: "13/03/2021"}
+      });
+    }
+
+  return (
+    <>
+  {/* <h1>My Site Status: {star}</h1>
+    <button type="button" onClick={()=>setStar("bookmarked")}>google.com</button>
+    <button type="button" onClick={()=>setStar("bookmarked")}>amazon.com</button>
+    <button type="button" onClick={()=>setStar("unmarked")}>netflix.com</button> */}
+    <h1>Google Summary {product.brand}</h1>
+    <p>
+      Currently you are using the below products: {product.limit}, {product.storage} from {product.date}
+    </p>
+
+    <button type="button" onClick={updateDate}> Update </button>
+
+    </>
+  )
+}
+
+
+export default App
+
+
+
+
+RangeSlider:
+
+// Let's add a Range Slider using Material UI
+
+// npm install @material-ui/core
+// slider component from material-ui library
+// useState hook to access the state of the slider
+
+
+import React, {useState} from 'react'
+import {Slider} from "@material-ui/core"
+
+
+function App(){
+
+  // set differernt values for labels
+  const temp = [
+    {
+      deg: 0,
+      label: "0C"
+    },
+    {
+      deg: 25,
+      label: "25 C"
+    },
+    {
+      deg: 50,
+      label: "50 C"
+    },
+    {
+      deg: 98,
+      label: "98 C"
+    },
+    {
+      deg: 100,
+      label: "100 C"
+    }
+  ] 
+
+  const [deg, setDeg] = useState([0, 50])
+
+  const updateProgressButton = (ev, valuePassed) => {
+    setDeg(valuePassed)
+  }
+
+  return(
+    <div className="App">
+      <h1> Temperature Checker</h1>  
+      <div style={{width: 400, margin: 60}}>
+        <span className='temp'>Temperature value is: </span>{" "}
+         <Slider value = {deg} onChange={updateProgressButton} marks={temp} />  
+      </div>{" "}
+    </div>    
+  )
+}
+
+
+export default App

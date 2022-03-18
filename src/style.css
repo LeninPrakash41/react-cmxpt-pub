@@ -1,12 +1,12 @@
-h1,
+/* h1,
 p {
   font-family: Lato;
-}
+} */
 
 /* .elem{
   color:red;
 } */
-
+/* 
 #elem {
   color: green;
   font-size: 40px;
@@ -38,4 +38,24 @@ img {
   justify-content: center;
   color: black;
   font-size: calc(8px + 2vmin);
+} */
+
+
+
+body{
+  margin: 0px;
+}
+
+.App{
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 10px;
+  color: green;
+}
+
+.temp{
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 10px;
+  color: red !important;
 }
