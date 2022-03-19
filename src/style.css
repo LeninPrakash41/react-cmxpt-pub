@@ -40,22 +40,20 @@ img {
   font-size: calc(8px + 2vmin);
 } */
 
-
-
-body{
+body {
   margin: 0px;
 }
 
-.App{
+.App {
   font-size: 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 10px;
   color: green;
 }
 
-.temp{
+.temp {
   font-size: 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 10px;
   color: red !important;
 }

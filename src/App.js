@@ -26,7 +26,7 @@ import {
 } from "@devexpress/dx-react-chart-material-ui"
 
 
-const App = () =>{
+const App = () => {
 
   // Data can be loaded in Array as an Object
 
@@ -55,12 +55,12 @@ const App = () =>{
   ]
 
   return (
-      <Paper>
-        <Chart data = {jsonData}>
+    <Paper>
+      <Chart data={jsonData}>
         <PieSeries valueField='value' argumentField='arg' />
         <Title text="Statistical Report" />
-        </Chart>
-      </Paper>
+      </Chart>
+    </Paper>
   )
 }
 
