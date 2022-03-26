@@ -1,0 +1,62 @@
+Responsive Nav Bar:
+App Bar - In Material UI, components are already a tailor-made one which we can use it in our application.
+Adapt it to different screen sizes
+
+Screen Size:
+380 to 411 (Pixel Phones)
+412 to 480 (SMartphone)
+500 to 811 (Tablets)
+1024 to 1244 (Laptop)
+1300 to 1800 (Desktop/Large Screen)
+
+Set Up Procedure:
+1. Create application using create-react-app command (npx or yarn)
+2. Install Dependencies
+    npm install react-router-dom
+    npm install @material-ui/core
+    npm install @material-ui/icons
+
+    yarn install react-router-dom
+    yarn install @material-ui/core
+    yarn install @material-ui/icons
+
+3. Create a Header component
+4. Add Routing to all Menu Items
+5. Create a Drawer component
+6. Pile Up all the files together in component folder
+7. Run your application using npm start
+
+import required components from Material UI:
+1. App Bar
+2. Toolbar
+3. CssBaseline - help you to remove margins
+4. makeStyles - We can make stylings once after removing the margins.
+5. Typography
+6. Routing - use import Link from react-router-dom
+
+App.Js
+
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./component/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/Blog" element={<Blog />} />
+          <Route path="/Contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;

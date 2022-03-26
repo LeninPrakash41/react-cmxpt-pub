@@ -1,0 +1,151 @@
+Styling using Sass template not Css:
+
+Sass - CSS pre-processor
+Sass files are being executed on the server and sends css to the browser
+reduce repitited code of CSS
+
+Standard Variables and Values 
+
+//CSS
+backgroundcolor: blue;
+color: darkblue;
+
+//Sass
+$bgcolor: blue;
+$textcolor: darkblue;
+$fontsize : 18px;
+$width : 680px;
+$myTheme : red;
+
+/* use the variables */
+body{
+    backgroundcolor: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize;
+}
+
+.container {
+width: $width;
+}
+
+h1{
+    $myTheme : green !global;
+    color: #myTheme;
+}
+
+Variables:
+1. strings
+2. numbers
+3. colors
+4. list
+5. booleans
+
+Syntax: $var_name: value;
+
+Global:
+!global 
+
+
+Nested Property:
+
+nav {
+ul{
+    margin: 0;
+    padding: 0;
+
+}
+li{
+color: green;
+}
+a{
+text-decoration : none;
+}
+}
+
+
+nav ul{
+    margin: 0
+}
+
+nav li{
+
+}
+
+nav a{
+
+}
+
+@Imports and @Partials:
+
+@import directive -  allow us to include the content of another files
+
+@import filename (.sass / .scss)
+
+@import "variables";
+@import "colors";
+
+
+@partial SYnatx::after
+
+_filename
+
+
+1. useReducer Hook - useState (it will also allow us to chnage state logic, useReducer is useful when we have mulitple peice of state that rely on business logics)
+
+Syntax:
+useReducer(<reducer>, <initialState>)
+    1. reducer contains the custom logic 
+    2. initialState - simple value but that will be an Object
+
+
+const initialState = [
+    {
+        id: 1,
+        title: "TASK TITLE",
+        closed: false,
+    },
+    {
+        id: 2,
+        title: "TASK TITLE 2",
+        closed: false,
+    }
+];
+
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case : "CLOSED":
+            return state.map((taskBoard) =>{
+                if(taskBoard.id === action.id){
+                    return {...taskBoard, closed: !taskBoard.closed}
+                }
+                else{
+                    return taskBoard
+                }
+            )};
+        default:
+            return state;
+    }
+};
+
+
+function TaskBoard(){
+const [tasks, dispatch] = useReducer( reducer, initialState)
+
+function handleTask = (taskBoard) =>{
+    dispatch({type: "CLOSED", id: taskBoard.id});
+}
+
+
+return (
+<>
+{tasks.map((taskBoard) => (
+    <div key={taskBoard.id}>
+    <input type="checkbox" checked = {taskBoard.closed} onChange = {() => handleTask(taskBoard) }
+    </div>
+)
+)}
+</>
+)
+
+}

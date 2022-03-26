@@ -1,0 +1,80 @@
+REDUX:
+Redux - Pattern and Libarary (Standalone Javascript Libarary) to manage and updating an application state, using an event called "Actions".
+"Global State" - state that is needed across many areas in your application
+
+When, where, why and how the state in our application is being updated?
+How our application logics will behave when those changes will occur.
+
+When should we use?
+1. Help you to deal with shared state management
+2. If we have a large amounts of application state that are needed in many places
+3. App should be updated frequently overtime
+4. The logic to update that state might be a complex one.
+5. Large code-base applications (>1000 Customers)
+6. All applications are not required the support of Redux.
+
+
+Tools:
+1. React-Redux => Integrate with any UI framework.
+2. React Componnets - Interact with a Redux store by reading a piece of state and dispatch actions to update the store.
+3. Toolkit - Using this tk, we can write redux logics clear and precise.
+4. It reduce your time and reduce the complexity of tasks, we can hadle common mistakes, we can reduce development time
+5. DevTools Extension (https://github.com/reduxjs/redux-devtools/tree/main/extensions) -  History of changes of your state. We can also debug our application with time-travel debugging
+
+State Management:
+1. Self-container application (state, view, actions)
+State - Main source that drives our application
+View - UI based comp on the current state
+Actions - Event that occur in our application based on user's input, or triggering updates in the state.
+2. One-way data flow/unidirecitonal flow
+3. Process of One-way
+    A. State described the condition of our application at speciifed time
+    b. UI is rendered based on the state
+    c. When something happends from User end, the state i sgoign to update 
+    d. UI will re-render based on the new state's output.
+
+
+Sample Code: Counter application
+
+
+function Counter(){
+    //State - a acounter value
+
+    const [ counter , setCounter] = useState(0)
+
+    // Action - Make an update to the state when something trigerred
+
+    const increment = () => {
+        setCounter( prevCounter => prevCounter + 1)
+    }
+
+    // View - UI display
+    return (
+        <div>
+        Value: {counter} <button onClick={increment}></button>
+        </div>
+    )
+}
+
+Installation command:
+
+npm install --save redux react-redux 
+react-reduc@latest
+
+Code Flow:
+1. Actions: Type of the action and another one is what should be changed in app state.
+2. Reducers: Functions that are implement the behaviour of the actions. they chnage the state, based on action and state change description
+3. Store: It brings you the actions and reducers together, to amke it a single store
+
+npm install -g cross-env
+Package.JSON -  //"start": "NODE_PATH=./src react-scripts start",
+
+
+1. State - is where information is stored. Ex. this.setState(...) , we have used in react Componnets
+2. Store - is where we can keep its state. RC can interact and retrieve the state from the store. The store is constructed with a Reducer, initial State, and enhancers.
+3. Reducers - are used to update teh state within the store. It takes in a state and ana action, and then return a new state.
+    name it as - reduce state and actions into a new single state.
+4. Actions - an object sent to reducers to update a state. 
+    A function that return an action is an action creator. When using an AC and redux's connect, a react component can update the state of the store.
+
+P.s: Enhancers - Are functions that enhance the redux store with any thirs-party lib.

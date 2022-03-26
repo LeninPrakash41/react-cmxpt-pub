@@ -53,13 +53,13 @@ function Navbar() {
             <Link to="/" className={classStyle.link}>
               Home
             </Link>
-            <Link to="/About" className={classStyle.link}>
+            <Link to="/about" className={classStyle.link}>
               About
             </Link>
-            <Link to="/Contact" className={classStyle.link}>
+            <Link to="/contact" className={classStyle.link}>
               Contact
             </Link>
-            <Link to="/Blog" className={classStyle.link}>
+            <Link to="/blog" className={classStyle.link}>
               Blog
             </Link>
           </div>

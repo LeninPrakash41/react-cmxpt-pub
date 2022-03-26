@@ -1,0 +1,20 @@
+{
+    "actionDataType": "GET_POSTS",
+    "blogposts": [
+
+        {
+            "id": 1,
+            "title": "React JS",
+            "tutor": "Lenin",
+            "body": "Flux And Components"
+        },
+
+        {
+            "id": 2,
+            "title": "React JS with Redux",
+            "tutor": "Lenin",
+            "body": "Redux And Components"
+        }
+    ]
+
+}

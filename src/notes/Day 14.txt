@@ -1,0 +1,26 @@
+How to Manage State in React JS:
+1. Flux - Scalable Application developement. Application architecture for building user interfaces with high Scalable option.
+2. Redux - Pattern and Library used for managing and updating application's state using events called "Actions".
+
+Flux:
+ - Unidirectional Data Flow
+ - Three Major parts (Dispatcher, Stores, View (Components))
+ - MVC (Model-View-Controller) 
+ - We don't have any controller available in Flux, but they are "controller-Views"
+ - View (Top Level, that can retrieve data from the stores and pass this data to their childrens)
+ - When User reacts with View in REactJS, the view file propogates an action through a Dispatcher, to stores that can hold the application's business logics or data.
+ - Client-Side view can be updated.
+ - Allows the store to send updates without specifying how the transition view between states.
+
+
+ Structure:
+ - Data in a Flux in a single flow or direction
+
+Installation:
+1. Actions
+2. Stores
+3. Dispatcher file
+4. INstall - npm install react-router-dom@5.0.0 bootstrap@4.3.1 
+5. create json file to rettrieve data (API, database or local file)
+6. Base compoennt as index.json
+7. Rendered Component is App.js file

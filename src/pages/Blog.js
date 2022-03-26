@@ -1,13 +1,26 @@
-// const Blog = () => {
-//   return <h1>Blog Page</h1>;
-// };
+import React, { useState, useEffect } from "react";
+import PostLists from "../component/PostLists";
+import postStore from "../stores/postStores";
+import { getPosts } from "../actions/postAction";
 
-// export default Blog;
+function PostPage() {
+    const [posts, setPosts] = useState(postStore.getPosts());
 
-import { Typography } from "@material-ui/core";
+    useEffect(() => {
+        postStore.addChangeListener(onChange);
+        if (postStore.getPosts().length === 0) getPosts();
+        return () => postStore.removeChangeListener(onChange);
+    }, []);
 
-function Blog() {
-  return <Typography> Blog Page </Typography>;
+    function onChange() {
+        setPosts(postStore.getPosts());
+    }
+
+    return (
+        <div>
+            <PostLists posts={posts} />
+        </div>
+    );
 }
 
-export default Blog;
+export default PostPage;
