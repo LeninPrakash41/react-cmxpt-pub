@@ -1,0 +1,25 @@
+Chat Application:
+Client/Server scripting, Even without Server side we can do chat applicaiton using chat engine
+
+1. Chat Services
+2. npm install react-chat-engine
+3. useState Hook method to handle Messaging (Direct/Personal Chat)
+
+chatengine.io (Create Account and generate API key)
+
+Secret Key, Handle Account Information.
+
+.env file:
+CHAT_APP_PROJECT_ID = "project key"
+CHAT_APP_USER_SECRET = "secret key"
+
+
+const App = () =>{
+return(
+
+    <ChatEngine username='', projectID='', userKey= ''/>
+)
+
+}
+
+export default App

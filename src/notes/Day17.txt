@@ -1,0 +1,72 @@
+RESTAPI using AXIOS:
+
+1. SOAP -  XML  (Simple Object Access Protocol, interchange data between distributed environment)
+2. RESTAPI - JSON (JavaScript Object Notation)
+
+BLOB- Media, Lage files, Hardware Device
+https://{url}/pages/api/v1/action?
+or 
+http://{url}/pages/api/v1/action?
+
+{
+    key: [0]
+        {
+        Data: "",
+        }
+    ]
+    "value",
+}
+
+
+response.data['key'][0]
+
+
+AXIOS: Promise based HTTP for browser, mobile or nodejs/laravel.
+
+Async and Await properties:
+
+Example, 10000 records to be loaded in an application. for that we need minimum of 15 paginations in web and 15 vertical scrolls in mobil.
+
+10000 > 30 seconds to load all the data (More time)
+
+1-100
+2-200
+3-300
+.
+.
+.
+.
+n-10000
+
+Also, we can cancel the requests and intercept the requests. They have built-in system called cross-site functionality
+
+https://www.algox.org/action="https://www.google.com/"?id={}    ->  CORS ORIGIN ERROR
+
+Proxy Method - To avoid CORS or CORB error (Promise)
+
+github.com/axios/axios
+
+JSONPlaceholder API - Fake API (https://jsonplaceholder.typicode.com)
+
+
+FETCH in JAVASCRIPT:
+
+fetch('https://jsonplaceholder.typicode.com/todos/1).then(response => response.json())
+.then(json => console.log(json))
+
+OUT:
+{
+    "userid": 1,
+    "id": 1,
+    "title":"Sample",
+    "completed": true
+
+}
+
+
+Verify Some Pre-requesites:
+1. NPX (no Erros)
+2. npm install axios@0.24.0
+3. components
+4. setState Methods
+5. Load the API call inside "Life CYcle - componentDidmount(){    api call   }
